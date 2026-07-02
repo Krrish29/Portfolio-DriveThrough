@@ -29,7 +29,7 @@ export default function TopRightMenu() {
           <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
         </svg>
         {coinCount > 0 && (
-          <span className="absolute -top-1 -right-1 flex h-5 min-w-[20px] items-center justify-center rounded-full border border-white/20 bg-[#ffd660]/95 px-1.5 text-[11px] font-semibold text-[#1d1b23] shadow-[0_0_10px_rgba(255,214,96,0.22)]">
+          <span className="absolute -top-1 -right-1 hidden h-5 min-w-[20px] items-center justify-center rounded-full border border-white/20 bg-[#ffd660]/95 px-1.5 text-[11px] font-semibold text-[#1d1b23] shadow-[0_0_10px_rgba(255,214,96,0.22)] sm:flex">
             {coinCount}
           </span>
         )}
