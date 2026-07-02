@@ -18,7 +18,7 @@ export default function HUD() {
       <div className="absolute right-3 top-24 pointer-events-auto sm:top-auto sm:right-5 sm:bottom-5 sm:left-auto hud-bottom-spaced">
         <Speedometer />
       </div>
-      <div className="hidden sm:block absolute bottom-24 left-3 pointer-events-auto sm:bottom-5 sm:left-5 hud-bottom-left-spaced">
+      <div className="hidden md:block absolute bottom-24 left-3 pointer-events-auto sm:bottom-5 sm:left-5 hud-bottom-left-spaced">
         <ControlsToggle />
       </div>
       <EnterPrompt />

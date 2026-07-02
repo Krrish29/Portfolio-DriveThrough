@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type PointerEvent } from "react";
 import { motion } from "framer-motion";
 import { dispatchMobileControlState } from "../../hooks/useKeyboardControls";
 
@@ -15,8 +15,8 @@ export default function MobileControls() {
   const [isLandscape, setIsLandscape] = useState(false);
 
   useEffect(() => {
-    const media = window.matchMedia("(max-width: 900px) and (pointer: coarse)");
-    const orientation = window.matchMedia("(orientation: landscape)");
+    const media = globalThis.matchMedia("(max-width: 1024px) and (pointer: coarse), (hover: none)");
+    const orientation = globalThis.matchMedia("(orientation: landscape)");
 
     const update = () => {
       setIsMobile(media.matches);
@@ -51,7 +51,17 @@ export default function MobileControls() {
     dispatchMobileControlState(nextState);
   };
 
-  const resetControls = () => {
+  const pointerIdRef = useRef<number | null>(null);
+
+  const resetControls = (event?: PointerEvent<HTMLDivElement>) => {
+    if (event?.pointerId != null) {
+      try {
+        event.currentTarget.releasePointerCapture(event.pointerId);
+      } catch {
+        // ignore capture release failures
+      }
+    }
+    pointerIdRef.current = null;
     setIsActive(false);
     setStickPosition({ x: 0, y: 0 });
     dispatchMobileControlState({
@@ -73,18 +83,19 @@ export default function MobileControls() {
           onPointerDown={(event) => {
             event.preventDefault();
             event.currentTarget.setPointerCapture(event.pointerId);
+            pointerIdRef.current = event.pointerId;
             setIsActive(true);
             updateFromPoint(event.clientX, event.clientY);
           }}
           onPointerMove={(event) => {
-            if (!isActive) return;
+            if (!isActive || pointerIdRef.current !== event.pointerId) return;
             updateFromPoint(event.clientX, event.clientY);
           }}
-          onPointerUp={() => resetControls()}
-          onPointerCancel={() => resetControls()}
-          onPointerLeave={() => {
-            if (!isActive) return;
-            resetControls();
+          onPointerUp={(event) => resetControls(event)}
+          onPointerCancel={(event) => resetControls(event)}
+          onPointerLeave={(event) => {
+            if (!isActive || pointerIdRef.current !== event.pointerId) return;
+            resetControls(event);
           }}
           className={`relative flex ${isLandscape ? "h-24 w-24" : "h-28 w-28"} items-center justify-center rounded-full border border-white/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.18),rgba(0,0,0,0.25))] shadow-[0_0_35px_rgba(0,0,0,0.4)] backdrop-blur-xl`}
           style={{ touchAction: "none" }}
