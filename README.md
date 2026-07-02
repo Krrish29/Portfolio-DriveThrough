@@ -81,8 +81,6 @@ Each section opens an interactive information panel inside the experience.
 
 # Project Structure
 
-## 📁 Project Structure
-
 ```text
 src
 ├── App.tsx
