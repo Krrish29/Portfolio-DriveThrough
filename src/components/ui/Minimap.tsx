@@ -19,10 +19,10 @@ export default function Minimap() {
 
   return (
     <div
-      className="glass-panel rounded-full overflow-hidden relative"
-      style={{ width: MAP_SIZE, height: MAP_SIZE }}
+      className="glass-panel game-ui-panel rounded-full overflow-hidden relative"
+      style={{ width: MAP_SIZE, height: MAP_SIZE, maxWidth: "92vw", maxHeight: "92vw" }}
     >
-      <div className="absolute inset-0" style={{ opacity: 0.5, background: "radial-gradient(circle, transparent 60%, rgba(0,0,0,0.4) 100%)" }} />
+      <div className="absolute inset-0" style={{ opacity: 0.5, background: "radial-gradient(circle, transparent 55%, rgba(0,0,0,0.45) 100%)" }} />
 
       {BUILDINGS.map((b) => {
         const { left, top } = toMapCoords(b.position[0], b.position[2]);
@@ -49,21 +49,53 @@ export default function Minimap() {
       <div
         className="absolute"
         style={{
-          left: MAP_SIZE / 2 - 5,
-          top: MAP_SIZE / 2 - 5,
-          width: 10,
-          height: 10,
-          transform: `rotate(${heading + Math.PI}rad)`,
+          left: MAP_SIZE / 2,
+          top: MAP_SIZE / 2,
+          width: 28,
+          height: 28,
+          transform: `translate(-50%, -50%) rotate(${heading}rad)`,
+          transformOrigin: "center",
         }}
       >
         <div
           style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            width: 14,
+            height: 14,
+            transform: "translate(-50%, -50%)",
+            borderRadius: "50%",
+            border: "1px solid rgba(255,255,255,0.24)",
+            background: "rgba(255,255,255,0.1)",
+            boxShadow: "0 0 14px rgba(255,255,255,0.12)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "8%",
+            transform: "translateX(-50%)",
             width: 0,
             height: 0,
-            borderLeft: "5px solid transparent",
-            borderRight: "5px solid transparent",
-            borderBottom: "10px solid var(--color-glow)",
-            filter: "drop-shadow(0 0 3px var(--color-glow))",
+            borderLeft: "7px solid transparent",
+            borderRight: "7px solid transparent",
+            borderBottom: "13px solid var(--color-glow)",
+            filter: "drop-shadow(0 0 5px var(--color-glow))",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "40%",
+            transform: "translateX(-50%)",
+            width: 2,
+            height: 14,
+            borderRadius: 1,
+            background: "rgba(255,255,255,0.85)",
+            opacity: 0.9,
           }}
         />
       </div>

@@ -1,33 +1,27 @@
 import Minimap from "./Minimap";
 import Speedometer from "./Speedometer";
-import LocationDisplay from "./LocationDisplay";
 import ControlsToggle from "./ControlsToggle";
 import EnterPrompt from "./EnterPrompt";
-import { AudioToggle } from "./AudioManager";
-import DayNightToggle from "./DayNightToggle";
-import Toast from "./Toast";
+import TopRightMenu from "./TopRightMenu";
 import Confetti from "./Confetti";
 
 /** Pure layout shell — each piece manages its own data via the game store. */
 export default function HUD() {
   return (
     <div className="fixed inset-0 z-20 pointer-events-none">
-      <div className="absolute top-5 left-5 pointer-events-auto">
+      <div className="absolute left-3 top-3 pointer-events-auto sm:left-5 sm:top-5 hud-top-spaced">
         <Minimap />
       </div>
-      <div className="absolute top-5 right-5 flex items-start gap-3 pointer-events-auto">
-        <LocationDisplay />
-        <DayNightToggle />
-        <AudioToggle />
+      <div className="absolute inset-x-3 top-3 flex justify-center pointer-events-auto sm:inset-x-auto sm:right-5 sm:left-auto sm:top-5 sm:justify-end hud-top-spaced hud-right-spaced">
+        <TopRightMenu />
       </div>
-      <div className="absolute bottom-5 left-5 pointer-events-auto">
-        <ControlsToggle />
-      </div>
-      <div className="absolute bottom-5 right-5 pointer-events-auto">
+      <div className="absolute right-3 top-24 pointer-events-auto sm:top-auto sm:right-5 sm:bottom-5 sm:left-auto hud-bottom-spaced">
         <Speedometer />
       </div>
+      <div className="hidden sm:block absolute bottom-24 left-3 pointer-events-auto sm:bottom-5 sm:left-5 hud-bottom-left-spaced">
+        <ControlsToggle />
+      </div>
       <EnterPrompt />
-      <Toast />
       <Confetti />
     </div>
   );

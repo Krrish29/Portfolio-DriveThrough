@@ -30,6 +30,23 @@ npm run preview    # preview the production build locally
 
 ---
 
+## Recent updates
+
+These improvements were made in the latest development pass:
+
+- **Speedometer redesign**: switched to a true dial gauge with a needle,
+  color-coded speed zones, and a cleaner overlay-free visual style.
+- **HUD/mobile polish**: refined the in-game HUD layout so the speedometer and
+  controls are better positioned on smaller screens.
+- **Landing screen restoration**: returned the richer purple landing look and
+  improved the start button styling.
+- **Copy updates**: corrected contact section text and certification year
+  content in `src/data/sections.ts` and `src/components/ui/SectionPanel.tsx`.
+- **NPCs**: added animated pedestrian walkers in `src/components/world/Pedestrians.tsx`
+  and wired them into the scene in `src/scenes/Experience.tsx`.
+- **Validation**: verified the project builds successfully with
+  `npm run build` after the polish work.
+
 ## What's implemented
 
 - **Driving**: acceleration, braking, reverse, speed-sensitive steering,

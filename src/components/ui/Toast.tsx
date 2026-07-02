@@ -16,8 +16,8 @@ export default function Toast() {
               initial={{ opacity: 0, y: -18, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -12, scale: 0.96 }}
-              className="glass-panel glass-panel-glow rounded-3xl px-6 py-4 text-left max-w-[20rem]"
-              style={{ background: "rgba(16,12,32,0.96)" }}
+              className="glass-panel game-ui-panel rounded-3xl px-6 py-4 text-left max-w-[22rem]"
+              style={{ background: "rgba(16,12,32,0.95)" }}
             >
               <div className="flex items-center gap-3">
                 <div

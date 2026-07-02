@@ -133,7 +133,7 @@ export const SECTION_CONTENT: Record<SectionId, SectionContent> = {
   },
   certifications: {
     certifications: [
-      { name: "AWS Certified AI Practitioner (AIF-C01)", issuer: "Amazon Web Services", date: "2025" },
+      { name: "AWS Certified AI Practitioner (AIF-C01)", issuer: "Amazon Web Services", date: "2026" },
       { name: "Oracle Cloud Infrastructure Certification", issuer: "Oracle", date: "2025" },
     ],
   },

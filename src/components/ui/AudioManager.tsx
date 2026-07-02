@@ -6,6 +6,7 @@ export default function AudioManager() {
   const ctxRef = useRef<AudioContext | null>(null);
   const engineGainRef = useRef<GainNode | null>(null);
   const engineOscRef = useRef<OscillatorNode | null>(null);
+  const lastCoinCountRef = useRef<number>(useGameStore.getState().coinCount);
 
   useEffect(() => {
     if (!audioEnabled) return;
@@ -54,9 +55,27 @@ export default function AudioManager() {
       lastShowConfetti = currentShowConfetti;
     });
 
+    const unsubCoins = useGameStore.subscribe((state) => {
+      const coinCount = state.coinCount;
+      if (coinCount > lastCoinCountRef.current) {
+        const sound = ctx.createOscillator();
+        sound.type = "triangle";
+        sound.frequency.value = 840;
+        const soundGain = ctx.createGain();
+        soundGain.gain.setValueAtTime(0, ctx.currentTime);
+        soundGain.gain.linearRampToValueAtTime(0.14, ctx.currentTime + 0.006);
+        soundGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.22);
+        sound.connect(soundGain).connect(ctx.destination);
+        sound.start();
+        sound.stop(ctx.currentTime + 0.22);
+      }
+      lastCoinCountRef.current = coinCount;
+    });
+
     return () => {
       unsubSpeed();
       unsubConfetti();
+      unsubCoins();
       pad.stop();
       engine.stop();
       ctx.close();
@@ -73,7 +92,7 @@ export function AudioToggle() {
   return (
     <button
       onClick={toggleAudio}
-      className="glass-panel rounded-full w-11 h-11 flex items-center justify-center text-lg"
+      className="glass-panel game-ui-button rounded-full w-11 h-11 flex items-center justify-center text-lg transition hover:bg-white/12"
       style={{ color: "var(--color-ink)" }}
       aria-label="Toggle sound"
       title="Toggle sound"

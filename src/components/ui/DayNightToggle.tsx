@@ -7,7 +7,7 @@ export default function DayNightToggle() {
   return (
     <button
       onClick={toggleTimeOfDay}
-      className="glass-panel rounded-full w-11 h-11 flex items-center justify-center text-lg"
+      className="glass-panel game-ui-button rounded-full w-11 h-11 flex items-center justify-center text-lg transition hover:bg-white/12"
       style={{ color: "var(--color-ink)" }}
       aria-label="Toggle day / night"
       title="Toggle day / night"

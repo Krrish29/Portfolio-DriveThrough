@@ -53,6 +53,15 @@ interface GameState {
    *  drives skid-mark decals on the road. */
   isSkidding: boolean;
   setIsSkidding: (v: boolean) => void;
+
+  coinCount: number;
+  collectedCoins: Set<number>;
+  collectCoin: (id: number) => void;
+
+  sessionTimeSeconds: number;
+  communityTimeSeconds: number;
+  loadCommunityTime: (seconds: number) => void;
+  addCommunitySeconds: (seconds: number) => void;
 }
 
 const TOTAL_LOCATIONS = 6; // about, projects, experience, certifications, achievements, contact
@@ -108,6 +117,31 @@ export const useGameStore = create<GameState>((set, get) => ({
   timeOfDay: "dusk",
   toggleTimeOfDay: () =>
     set((state) => ({ timeOfDay: state.timeOfDay === "dusk" ? "night" : "dusk" })),
+
+  coinCount: 0,
+  collectedCoins: new Set(),
+  collectCoin: (id) =>
+    set((state) => {
+      if (state.collectedCoins.has(id)) return state;
+      const next = new Set(state.collectedCoins);
+      next.add(id);
+      return { collectedCoins: next, coinCount: state.coinCount + 1 };
+    }),
+
+  sessionTimeSeconds: 0,
+  communityTimeSeconds: 0,
+  loadCommunityTime: (seconds) => set({ communityTimeSeconds: seconds }),
+  addCommunitySeconds: (seconds) =>
+    set((state) => {
+      const next = state.communityTimeSeconds + seconds;
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("communityTimeSeconds", next.toString());
+      }
+      return {
+        communityTimeSeconds: next,
+        sessionTimeSeconds: state.sessionTimeSeconds + seconds,
+      };
+    }),
 
   toasts: [],
   pushToast: (message) => {

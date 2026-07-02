@@ -20,7 +20,7 @@ export default function LoadingScreen() {
       setProgress(pct);
       if (pct < 100) {
         frame = requestAnimationFrame(tick);
-      } else {
+      } else {1 
         setTimeout(() => setReady(true), 300);
       }
     };
@@ -35,21 +35,21 @@ export default function LoadingScreen() {
           className="fixed inset-0 z-50 flex flex-col items-center justify-center"
           style={{
             background:
-              "radial-gradient(ellipse at 50% 30%, #2a1f45 0%, var(--color-bg-deep) 70%)",
+              "radial-gradient(circle at 50% 22%, rgba(154, 92, 255, 0.18), transparent 18%), radial-gradient(circle at 75% 15%, rgba(255, 190, 105, 0.08), transparent 12%), radial-gradient(circle at 20% 18%, rgba(82, 211, 199, 0.08), transparent 14%), linear-gradient(180deg, #12071f 0%, #120a27 30%, #09050e 100%)",
           }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
         >
           <motion.h1
             className="font-[var(--font-display)] text-3xl md:text-4xl tracking-wide mb-2"
-            style={{ color: "var(--color-glow)" }}
+            style={{ color: "#d6b6ff" }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             KRRISH GARG
           </motion.h1>
-          <p className="text-sm mb-10 tracking-[0.3em]" style={{ color: "var(--color-muted)" }}>
+          <p className="text-sm mb-10 tracking-[0.3em]" style={{ color: "rgba(255,255,255,0.74)" }}>
             PORTFOLIO DRIVE
           </p>
 
@@ -75,14 +75,14 @@ export default function LoadingScreen() {
               whileTap={{ scale: 0.97 }}
               onClick={() => setHasLoaded(true)}
               className="glass-panel glass-panel-glow px-8 py-3 rounded-full font-[var(--font-display)] text-sm tracking-[0.2em]"
-              style={{ color: "var(--color-ink)" }}
+              style={{ color: "#f7f1f8", background: "rgba(89, 55, 133, 0.4)", borderColor: "rgba(255, 187, 255, 0.22)" }}
             >
               START ENGINE
             </motion.button>
           )}
 
-          <p className="mt-10 text-xs font-[var(--font-mono)]" style={{ color: "var(--color-muted)" }}>
-            WASD / ARROWS TO DRIVE · E TO ENTER · ESC TO CLOSE
+          <p className="mt-10 text-xs font-[var(--font-mono)]" style={{ color: "rgba(255,255,255,0.62)" }}>
+            Ready to explore?
           </p>
         </motion.div>
       )}

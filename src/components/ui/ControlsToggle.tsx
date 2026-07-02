@@ -50,7 +50,7 @@ export default function ControlsToggle() {
 
       <button
         onClick={() => setOpen((o) => !o)}
-        className="glass-panel rounded-full w-11 h-11 flex items-center justify-center text-lg"
+        className="glass-panel game-ui-button rounded-full w-11 h-11 flex items-center justify-center text-lg transition hover:bg-white/12"
         style={{ color: open ? "var(--color-glow)" : "var(--color-ink)" }}
         aria-label="Toggle controls"
         title="Controls"

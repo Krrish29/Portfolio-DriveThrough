@@ -11,8 +11,10 @@ import Boundaries from "../components/world/Boundaries";
 import WelcomeArch from "../components/world/WelcomeArch";
 import GasStation from "../components/world/GasStation";
 import ParkedCars from "../components/world/ParkedCars";
+import Pedestrians from "../components/world/Pedestrians";
 import Cones from "../components/world/Cones";
 import SkidMarks from "../components/world/SkidMarks";
+import Coins from "../components/world/Coins";
 import Buildings from "../components/buildings/Buildings";
 import Car, { type CarHandle } from "../components/car/Car";
 import CameraRig from "../components/car/CameraRig";
@@ -35,7 +37,9 @@ function SceneContent() {
         <WelcomeArch />
         <GasStation />
         <ParkedCars />
+        <Pedestrians />
         <Car ref={carHandle} />
+        <Coins />
       </Physics>
 
       <Road />

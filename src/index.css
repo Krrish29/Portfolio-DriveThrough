@@ -74,3 +74,64 @@ canvas {
   50% { opacity: 1; }
 }
 .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+.game-ui-panel {
+  background: linear-gradient(180deg, rgba(18, 12, 31, 0.94), rgba(9, 7, 18, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+}
+
+.game-ui-label {
+  color: var(--color-glow);
+  text-shadow: 0 0 14px rgba(255, 190, 105, 0.25);
+}
+
+.game-ui-button {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Mobile safe-area and responsive HUD spacing */
+.hud-top-spaced {
+  top: max(1rem, env(safe-area-inset-top, 0.75rem) + 0.6rem);
+}
+
+.hud-right-spaced {
+  right: max(0.75rem, env(safe-area-inset-right, 0.75rem));
+}
+
+.hud-bottom-spaced {
+  bottom: max(1.5rem, env(safe-area-inset-bottom, 0.75rem) + 1rem);
+}
+
+.hud-bottom-left-spaced {
+  bottom: max(1.5rem, env(safe-area-inset-bottom, 0.75rem) + 1rem);
+}
+
+.mobile-controls-safe {
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom, 0.75rem));
+}
+
+@media (max-width: 520px) {
+  .hud-top-spaced {
+    top: max(1.25rem, env(safe-area-inset-top, 1rem) + 0.6rem);
+  }
+
+  .hud-bottom-spaced,
+  .hud-bottom-left-spaced {
+    bottom: max(2rem, env(safe-area-inset-bottom, 1rem) + 1rem);
+  }
+
+  .mobile-controls-safe {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 1rem));
+  }
+
+  .hud-bottom-spaced {
+    right: 0.75rem;
+    top: 4rem;
+    bottom: auto;
+  }
+}

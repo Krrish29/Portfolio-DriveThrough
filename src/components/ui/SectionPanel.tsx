@@ -20,21 +20,21 @@ function SectionBody({ id }: { id: SectionId }) {
     return (
       <div className="grid gap-4 sm:grid-cols-2">
         {content.projects?.map((p) => (
-          <div key={p.title} className="glass-panel rounded-xl p-4 flex flex-col gap-2">
-            <h3 className="font-[var(--font-display)] text-base" style={{ color: "var(--color-glow)" }}>
+          <div key={p.title} className="glass-panel game-ui-panel rounded-3xl p-5 flex flex-col gap-3">
+            <h3 className="font-[var(--font-display)] text-lg game-ui-label">
               {p.title}
             </h3>
-            <p className="text-xs leading-relaxed" style={{ color: "var(--color-muted)" }}>
+            <p className="text-sm leading-relaxed" style={{ color: "var(--color-muted)" }}>
               {p.description}
             </p>
-            <div className="flex flex-wrap gap-1.5 mt-1">
+            <div className="flex flex-wrap gap-2 mt-1">
               {p.tech.map((t) => (
-                <span key={t} className="text-[10px] px-2 py-0.5 rounded-full bg-white/5" style={{ color: "var(--color-ink)" }}>
+                <span key={t} className="text-[10px] px-2 py-1 rounded-full bg-white/7" style={{ color: "var(--color-ink)" }}>
                   {t}
                 </span>
               ))}
             </div>
-            <div className="flex gap-3 mt-2">
+            <div className="flex flex-wrap gap-3 mt-3">
               {p.github && (
                 <a href={p.github} target="_blank" rel="noreferrer" className="text-xs underline" style={{ color: "var(--color-accent)" }}>
                   GitHub
@@ -56,10 +56,10 @@ function SectionBody({ id }: { id: SectionId }) {
     return (
       <div className="space-y-4">
         {content.experience?.map((e) => (
-          <div key={e.role} className="glass-panel rounded-xl p-4">
+          <div key={e.role} className="glass-panel game-ui-panel rounded-3xl p-5">
             <div className="flex items-baseline justify-between flex-wrap gap-2">
               <div>
-                <h3 className="font-[var(--font-display)] text-base" style={{ color: "var(--color-glow)" }}>
+                <h3 className="font-[var(--font-display)] text-lg game-ui-label">
                   {e.role} · {e.org}
                 </h3>
                 {e.projectUrl && (
@@ -96,8 +96,8 @@ function SectionBody({ id }: { id: SectionId }) {
     return (
       <div className="grid gap-3 sm:grid-cols-2">
         {content.certifications?.map((c) => (
-          <div key={c.name} className="glass-panel rounded-xl p-4">
-            <h3 className="text-sm font-medium" style={{ color: "var(--color-glow)" }}>
+          <div key={c.name} className="glass-panel game-ui-panel rounded-3xl p-5">
+            <h3 className="text-sm font-semibold game-ui-label">
               {c.name}
             </h3>
             <p className="text-xs mt-1" style={{ color: "var(--color-muted)" }}>
@@ -144,7 +144,10 @@ function SectionBody({ id }: { id: SectionId }) {
     return (
       <div className="space-y-4">
         <p className="text-sm" style={{ color: "var(--color-ink)" }}>
-          Always happy to talk software, ML, or over-engineered portfolio websites.
+          Always eager to talk about exciting ideas.
+        </p>
+        <p className="text-sm" style={{ color: "var(--color-ink)" }}>
+          Bonus: I can probably recommend a game before I recommend a framework xD.
         </p>
         <div className="flex flex-col gap-3 text-sm">
           <div className="flex flex-wrap items-center gap-4">
@@ -216,8 +219,8 @@ export default function SectionPanel() {
               </h2>
               <button
                 onClick={closePanel}
-                className="text-xs px-3 py-1.5 rounded-full border"
-                style={{ color: "var(--color-muted)", borderColor: "rgba(255,255,255,0.12)" }}
+                className="text-xs px-4 py-2 rounded-full font-semibold game-ui-button transition hover:bg-white/12"
+                style={{ color: "var(--color-ink)" }}
               >
                 Esc · Close
               </button>
