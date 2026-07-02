@@ -81,22 +81,78 @@ Each section opens an interactive information panel inside the experience.
 
 # Project Structure
 
-```text
-src/
-├── components/
-│   ├── Experience.tsx
-│   ├── HUD.tsx
-│   ├── LoadingScreen.tsx
-│   ├── Pedestrians.tsx
-│   ├── SectionPanel.tsx
-│   ├── Speedometer.tsx
-│   └── ...
-├── data/
-│   └── sections.ts
-├── App.tsx
-└── main.tsx
-```
+## 📁 Project Structure
 
+```text
+src
+├── App.tsx
+├── main.tsx
+├── index.css
+│
+├── components
+│   ├── buildings
+│   │   ├── Building.tsx
+│   │   └── Buildings.tsx
+│   │
+│   ├── car
+│   │   ├── CameraRig.tsx
+│   │   ├── Car.tsx
+│   │   └── IntroFlythrough.tsx
+│   │
+│   ├── ui
+│   │   ├── AudioManager.tsx
+│   │   ├── CoinCounter.tsx
+│   │   ├── CommunityTimePanel.tsx
+│   │   ├── Confetti.tsx
+│   │   ├── ControlsHint.tsx
+│   │   ├── ControlsToggle.tsx
+│   │   ├── DayNightToggle.tsx
+│   │   ├── EnterPrompt.tsx
+│   │   ├── HUD.tsx
+│   │   ├── LoadingScreen.tsx
+│   │   ├── LocationDisplay.tsx
+│   │   ├── Minimap.tsx
+│   │   ├── MobileControls.tsx
+│   │   ├── SectionPanel.tsx
+│   │   ├── Speedometer.tsx
+│   │   ├── Toast.tsx
+│   │   └── TopRightMenu.tsx
+│   │
+│   └── world
+│       ├── Boundaries.tsx
+│       ├── Coins.tsx
+│       ├── Cones.tsx
+│       ├── GasStation.tsx
+│       ├── Ground.tsx
+│       ├── Lake.tsx
+│       ├── Mountains.tsx
+│       ├── ParkedCars.tsx
+│       ├── Pedestrians.tsx
+│       ├── Road.tsx
+│       ├── SkidMarks.tsx
+│       ├── SkyAndLights.tsx
+│       ├── StreetLights.tsx
+│       ├── Trees.tsx
+│       └── WelcomeArch.tsx
+│
+├── scenes
+│   └── Experience.tsx
+│
+├── hooks
+│   ├── useGameStore.ts
+│   ├── useKeyboardControls.ts
+│   └── useProximity.ts
+│
+├── data
+│   ├── coins.ts
+│   └── sections.ts
+│
+├── constants
+│   └── world.ts
+│
+└── types
+    └── index.ts
+```
 ---
 
 # Getting Started
