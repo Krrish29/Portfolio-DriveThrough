@@ -122,10 +122,7 @@ export const useGameStore = create<GameState>((set, get) => ({
   collectedCoins: new Set(),
   collectCoin: (id) =>
     set((state) => {
-      if (state.collectedCoins.has(id)) return state;
-      const next = new Set(state.collectedCoins);
-      next.add(id);
-      return { collectedCoins: next, coinCount: state.coinCount + 1 };
+      return { coinCount: state.coinCount + 1 };
     }),
 
   sessionTimeSeconds: 0,
