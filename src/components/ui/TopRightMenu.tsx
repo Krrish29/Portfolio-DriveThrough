@@ -37,7 +37,7 @@ export default function TopRightMenu() {
 
       {open && (
         <div
-          className="absolute left-1/2 top-14 z-30 -translate-x-1/2 w-[min(92vw,260px)] max-w-full rounded-3xl border border-white/10 bg-[#110b1d]/95 p-2 shadow-[0_24px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:left-auto sm:right-0 sm:translate-x-0 sm:w-[min(90vw,288px)] sm:p-3"
+          className="absolute right-0 top-14 z-30 w-[min(90vw,260px)] rounded-3xl border border-white/10 bg-[#110b1d]/95 p-2 shadow-[0_24px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:right-0 sm:w-[min(90vw,288px)] sm:p-3"
         >
           <div className="grid gap-2">
             <button
@@ -60,7 +60,7 @@ export default function TopRightMenu() {
               </span>
             </button>
 
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-3 text-sm text-[#f4efe4] sm:p-4">
+            <div className="hidden sm:block rounded-3xl border border-white/10 bg-white/5 p-3 text-sm text-[#f4efe4] sm:p-4">
               <div className="flex items-center justify-between gap-3 mb-3">
                 <div>
                   <p className="text-[9px] uppercase tracking-[0.32em] text-[var(--color-muted)] sm:text-[10px]">Time Played</p>

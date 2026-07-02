@@ -17,13 +17,11 @@ export default function App() {
   const [showOrientationHint, setShowOrientationHint] = useState(false);
 
   useEffect(() => {
-    const stored = typeof window !== "undefined" ? window.localStorage.getItem("communityTimeSeconds") : null;
-    if (stored) {
-      const seconds = Number(stored);
-      if (!Number.isNaN(seconds)) {
-        loadCommunityTime(seconds);
-      }
+    // Clear previous time and start fresh
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem("communityTimeSeconds");
     }
+    loadCommunityTime(0);
   }, [loadCommunityTime]);
 
   useEffect(() => {

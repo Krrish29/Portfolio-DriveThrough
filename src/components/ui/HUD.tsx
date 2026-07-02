@@ -12,7 +12,7 @@ export default function HUD() {
       <div className="absolute left-3 top-3 pointer-events-auto sm:left-5 sm:top-5 hud-top-spaced">
         <Minimap />
       </div>
-      <div className="absolute inset-x-3 top-3 flex justify-center pointer-events-auto sm:inset-x-auto sm:right-5 sm:left-auto sm:top-5 sm:justify-end hud-top-spaced hud-right-spaced">
+      <div className="absolute right-3 top-3 pointer-events-auto sm:right-5 sm:top-5 hud-top-spaced hud-right-spaced">
         <TopRightMenu />
       </div>
       <div className="absolute right-3 top-24 pointer-events-auto sm:top-auto sm:right-5 sm:bottom-5 sm:left-auto hud-bottom-spaced">
