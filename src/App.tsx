@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { EffectComposer, Bloom, Vignette } from "@react-three/postprocessing";
+import { Analytics } from "@vercel/analytics/react";
 import Experience from "./scenes/Experience";
 import LoadingScreen from "./components/ui/LoadingScreen";
 import HUD from "./components/ui/HUD";
@@ -89,6 +90,7 @@ export default function App() {
           <MobileControls />
         </>
       )}
+      <Analytics />
     </div>
   );
 }
