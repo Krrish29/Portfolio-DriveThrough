@@ -28,7 +28,7 @@ export default function Coins() {
       const dx = pos[0] - cx;
       const dz = pos[2] - cz;
       if (dx * dx + dz * dz < PICKUP_RADIUS * PICKUP_RADIUS) {
-        collectCoin(index);
+        collectCoin();
         setHiddenCoins((current) => {
           const next = new Set(current);
           next.add(index);

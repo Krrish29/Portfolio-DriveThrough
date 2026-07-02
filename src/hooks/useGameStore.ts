@@ -55,7 +55,7 @@ interface GameState {
   setIsSkidding: (v: boolean) => void;
 
   coinCount: number;
-  collectCoin: (id: number) => void;
+  collectCoin: () => void;
 
   sessionTimeSeconds: number;
   communityTimeSeconds: number;
@@ -118,7 +118,7 @@ export const useGameStore = create<GameState>((set, get) => ({
     set((state) => ({ timeOfDay: state.timeOfDay === "dusk" ? "night" : "dusk" })),
 
   coinCount: 0,
-  collectCoin: (id) =>
+  collectCoin: () =>
     set((state) => {
       return { coinCount: state.coinCount + 1 };
     }),
